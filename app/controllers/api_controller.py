@@ -1,13 +1,12 @@
 from flask import Flask, jsonify, request
 import os
 from dotenv import load_dotenv
-from cloudflare import Cloudflare
-
 # Load environment variables
 load_dotenv()
 
 # Initialize Cloudflare and Flask
-cf = Cloudflare(token=os.getenv("CF_API_TOKEN"))
+cf = CloudFlare.CloudFlare(token=os.getenv("CF_API_TOKEN"))
+cf = CloudFlare.CloudFlare(token=os.getenv("CF_API_TOKEN"))
 account_id = os.getenv("CF_ACCOUNT_ID")
 app = Flask(__name__)
 
@@ -41,3 +40,11 @@ def get_worker_analytics(script_name):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+def workers(args):
+    load_dotenv()
+    cf = CloudFlare(token=os.getenv("CF_API_TOKEN"))
+    zones = cf.zones.get()
+    for zone in zones:
+        print(f"{zone['name']} (ID: {zone['id']})")

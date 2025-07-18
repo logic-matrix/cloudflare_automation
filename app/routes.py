@@ -1,6 +1,9 @@
+from dotenv import load_dotenv
 from flask import Blueprint, jsonify, render_template
-from app.controllers.api_controller import get_workers_list
+from app.controllers.api_controller import  workers
 from app.controllers.users_controller import get_user_name
+from CloudFlare import CloudFlare
+import os
  
 
 main = Blueprint('main', __name__)
@@ -13,5 +16,8 @@ def index():
 # Route: Get list of Cloudflare Workers
 @main.route('/workers', methods=['GET'])
 def get_workers():
-    worker = get_workers_list()
+    worker = workers
     return jsonify(worker), 200
+ 
+
+ 
