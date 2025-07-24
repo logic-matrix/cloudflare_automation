@@ -12,9 +12,9 @@ CF_GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql"
 @app.route('/cloudflare/worker-analytics', methods=['GET'])
 def get_worker_analytics():
     # Updated datetime range (1-day gap)
-    datetime_start = "2025-07-21T00:00:00.000Z"
-    datetime_end = "2025-07-22T00:00:00.000Z"
-    script_name = "worker-subrequest-test-client"
+    datetime_start = "2025-07-22T00:00:00.000Z"
+    datetime_end = "2025-07-25T23:59:59.000Z"
+    script_name = "hello-world-worker"
 
     graphql_query = """
     query GetWorkersAnalytics($accountTag: string, $datetimeStart: string, $datetimeEnd: string, $scriptName: string) {
