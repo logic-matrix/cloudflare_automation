@@ -11,20 +11,20 @@ CF_GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql"
 
 @app.route('/cloudflare/worker-analytics', methods=['GET'])
 def get_worker_analytics():
-    # Updated datetime range (1-day gap)
     datetime_start = "2025-07-22T00:00:00.000Z"
     datetime_end = "2025-07-25T23:59:59.000Z"
-    script_name = "gentle-glade-6848"
 
     graphql_query = """
-    query GetWorkersAnalytics($accountTag: string, $datetimeStart: string, $datetimeEnd: string, $scriptName: string) {
+    query GetWorkersAnalytics($accountTag: string, $datetimeStart: string, $datetimeEnd: string) {
       viewer {
         accounts(filter: {accountTag: $accountTag}) {
-          workersInvocationsAdaptive(limit: 100, filter: {
-            scriptName: $scriptName,
-            datetime_geq: $datetimeStart,
-            datetime_leq: $datetimeEnd
-          }) {
+          workersInvocationsAdaptive(
+            limit: 100,
+            filter: {
+              datetime_geq: $datetimeStart,
+              datetime_leq: $datetimeEnd
+            }
+          ) {
             sum {
               subrequests
               requests
@@ -48,8 +48,7 @@ def get_worker_analytics():
     variables = {
         "accountTag": CF_ACCOUNT_ID,
         "datetimeStart": datetime_start,
-        "datetimeEnd": datetime_end,
-        "scriptName": script_name
+        "datetimeEnd": datetime_end
     }
 
     headers = {
@@ -69,7 +68,6 @@ def get_worker_analytics():
         return jsonify(response.json())
     else:
         return jsonify({"error": response.text}), response.status_code
-
 
 if __name__ == '__main__':
     app.run(debug=True)
