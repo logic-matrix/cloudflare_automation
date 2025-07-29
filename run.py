@@ -1,6 +1,7 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 import requests
-import json
+
+ 
 
 app = Flask(__name__)
 
@@ -10,6 +11,15 @@ CF_ACCOUNT_ID = "9fa92e8c102c73480191927c263d2d76"
 CF_GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql"
 
 @app.route('/cloudflare/worker-analytics', methods=['GET'])
+def worker_analytics(method='GET'):
+    response = get_worker_analytics()
+    
+    if response.status_code == 200:
+        return jsonify(response.json()) 
+    else:
+      return jsonify({"error": response.text}), response.status_code
+
+#####################################################################
 def get_worker_analytics():
     # Updated datetime range (1-day gap)
     datetime_start = "2025-07-22T00:00:00.000Z"
@@ -69,6 +79,7 @@ def get_worker_analytics():
         return jsonify(response.json())
     else:
         return jsonify({"error": response.text}), response.status_code
+
 
 
 if __name__ == '__main__':
