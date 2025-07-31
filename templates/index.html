@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloudflare Worker Analytics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+    
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        .status-success {
+            color: green;
+            font-weight: bold;
+        }
+    
+        .status-error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cloudflare Worker Analytics</h1>
+    <center>
+    <h3>Last 24 hours Analytics</h3>
+    </center>
+ 
+    <table>
+        <thead>
+            <tr>
+                <th>Date Time</th>
+                <th>Script Name</th>
+                <th>Status</th>
+                <th>Requests</th>
+                <th>Errors</th>
+                <th>Subrequests</th>
+                <th>CPU Time P50</th>
+                <th>CPU Time P99</th>
+            <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.dimensions.datetime }}</td>
+                <td>{{ row.dimensions.scriptName }}</td>
+                <td class="status-{{ row.dimensions.status }}">{{ row.dimensions.status }}</td>
+                <td>{{ row.sum.requests }}</td>
+                <td>{{ row.sum.errors }}</td>
+                <td>{{ row.sum.subrequests }}</td>
+                <td>{{ row.quantiles.cpuTimeP50 }}</td>
+                <td>{{ row.quantiles.cpuTimeP99 }}</td>
+                <td style="color: {% if row.sum.requests > 1 %}red{% else %}green{% endif %}; font-weight: bold;">
+                    {% if row.sum.requests > 1 %}
+                    Warning
+                    {% else %}
+                    Good
+                    {% endif %}
+                </td>
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</body>
+
+</html>

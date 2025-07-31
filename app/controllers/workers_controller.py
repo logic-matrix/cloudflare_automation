@@ -1,29 +1,37 @@
+from datetime import datetime, timedelta, timezone 
+from flask import json, jsonify
 import requests
-import os
-from flask import jsonify
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
-# Load from environment variables
-CF_API_TOKEN = os.getenv("CF_API_TOKEN", "HqBuAMJ5YuDcLWr5eoe5G3g7g70XYWhkTLlzR6sJ")
-CF_ACCOUNT_ID = os.getenv("CF_ACCOUNT_ID", "9fa92e8c102c73480191927c263d2d76")
-CF_GRAPHQL_ENDPOINT = os.getenv("CF_GRAPHQL_ENDPOINT", "https://api.cloudflare.com/client/v4/graphql")
+# Cloudflare API credentials from .env
+CF_API_TOKEN = os.getenv("CF_API_TOKEN")
+CF_ACCOUNT_ID = os.getenv("CF_ACCOUNT_ID")
+CF_GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql"
 
-def get_worker_analytics_controller():
-    datetime_start = "2025-07-22T00:00:00.000Z"
-    datetime_end = "2025-07-25T23:59:59.000Z"
-    script_name = "gentle-glade-6848"
+
+def get_worker_analytics():
+    # Calculate last 24 hours UTC range
+    datetime_end = datetime.now(timezone.utc)
+    datetime_start = datetime_end - timedelta(days=1)
+
+    # Format timestamps in ISO8601
+    datetime_start_str = datetime_start.strftime('%Y-%m-%dT%H:%M:%S.000Z')
+    datetime_end_str = datetime_end.strftime('%Y-%m-%dT%H:%M:%S.000Z')
 
     graphql_query = """
-    query GetWorkersAnalytics($accountTag: string, $datetimeStart: string, $datetimeEnd: string, $scriptName: string) {
+    query GetAllWorkersAnalytics($accountTag: string, $datetimeStart: string, $datetimeEnd: string) {
       viewer {
         accounts(filter: {accountTag: $accountTag}) {
-          workersInvocationsAdaptive(limit: 100, filter: {
-            scriptName: $scriptName,
-            datetime_geq: $datetimeStart,
-            datetime_leq: $datetimeEnd
-          }) {
+          workersInvocationsAdaptive(
+            limit: 100,
+            filter: {
+              datetime_geq: $datetimeStart,
+              datetime_leq: $datetimeEnd
+            }
+          ) {
             sum {
               subrequests
               requests
@@ -46,9 +54,8 @@ def get_worker_analytics_controller():
 
     variables = {
         "accountTag": CF_ACCOUNT_ID,
-        "datetimeStart": datetime_start,
-        "datetimeEnd": datetime_end,
-        "scriptName": script_name
+        "datetimeStart": datetime_start_str,
+        "datetimeEnd": datetime_end_str
     }
 
     headers = {
@@ -65,6 +72,12 @@ def get_worker_analytics_controller():
     response = requests.post(CF_GRAPHQL_ENDPOINT, headers=headers, json=payload)
 
     if response.status_code == 200:
-        return jsonify(response.json())
+        data = response.json()
+
+        # Save to workers_dat.json
+        with open("workers_data.json", "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+
+        return jsonify(data)
     else:
         return jsonify({"error": response.text}), response.status_code

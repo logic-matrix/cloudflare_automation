@@ -1,0 +1,317 @@
+{
+  "data": {
+    "viewer": {
+      "accounts": [
+        {
+          "workersInvocationsAdaptive": [
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:48:03Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 330,
+                "cpuTimeP99": 330
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 3,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:47:38Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 278,
+                "cpuTimeP99": 278
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 2,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:47:32Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 190,
+                "cpuTimeP99": 314
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 6,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:47:20Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 152,
+                "cpuTimeP99": 152
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:47:41Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 294,
+                "cpuTimeP99": 360
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 4,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:48:06Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 289,
+                "cpuTimeP99": 289
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 2,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:48:12Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 268,
+                "cpuTimeP99": 268
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 2,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:47:21Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 322,
+                "cpuTimeP99": 322
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:46:53Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 207,
+                "cpuTimeP99": 207
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:48:09Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 265,
+                "cpuTimeP99": 265
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 2,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:48:10Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 255,
+                "cpuTimeP99": 255
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 2,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:47:36Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 332,
+                "cpuTimeP99": 332
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:48:04Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 380,
+                "cpuTimeP99": 380
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 4,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:46:52Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 267,
+                "cpuTimeP99": 267
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:46:55Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 161,
+                "cpuTimeP99": 161
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:47:40Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 237,
+                "cpuTimeP99": 237
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 2,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:46:54Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 255,
+                "cpuTimeP99": 255
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:47:35Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 362,
+                "cpuTimeP99": 362
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 3,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-31T14:47:37Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 306,
+                "cpuTimeP99": 306
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 2,
+                "subrequests": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "errors": null
+}
