@@ -1,18 +1,16 @@
-from flask import  jsonify
 import requests
+import os
+from flask import jsonify
 from dotenv import load_dotenv
 
- 
-
 load_dotenv()
-# Cloudflare API Credentials (replace these with environment variables in production)
-CF_API_TOKEN = "HqBuAMJ5YuDcLWr5eoe5G3g7g70XYWhkTLlzR6sJ"
-CF_ACCOUNT_ID = "9fa92e8c102c73480191927c263d2d76"
-CF_GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql"
 
+# Load from environment variables
+CF_API_TOKEN = os.getenv("CF_API_TOKEN", "HqBuAMJ5YuDcLWr5eoe5G3g7g70XYWhkTLlzR6sJ")
+CF_ACCOUNT_ID = os.getenv("CF_ACCOUNT_ID", "9fa92e8c102c73480191927c263d2d76")
+CF_GRAPHQL_ENDPOINT = os.getenv("CF_GRAPHQL_ENDPOINT", "https://api.cloudflare.com/client/v4/graphql")
 
-def get_worker_analytics(method='GET'):
-    # Updated datetime range (1-day gap)
+def get_worker_analytics_controller():
     datetime_start = "2025-07-22T00:00:00.000Z"
     datetime_end = "2025-07-25T23:59:59.000Z"
     script_name = "gentle-glade-6848"
@@ -70,4 +68,3 @@ def get_worker_analytics(method='GET'):
         return jsonify(response.json())
     else:
         return jsonify({"error": response.text}), response.status_code
-
