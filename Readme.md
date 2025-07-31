@@ -3,6 +3,7 @@
 <p align="center"> This project is a **Cloudflare automation script** built with Python and Flask.  
 It fetches analytics for **all Cloudflare Workers** over the past 24 hours using the Cloudflare GraphQL API.
 </p>
+
 ## Features
 
 - Automatically fetches analytics data such as:
@@ -17,9 +18,9 @@ It fetches analytics for **all Cloudflare Workers** over the past 24 hours using
 - 📧 If any Worker exceeds a defined resource threshold (e.g., requests > 1), the system **sends an email alert to the client**.
 
 
-> ⚠️ **Do not commit your `.env` file**. It contains sensitive credentials.
+>  **Do not commit your `.env` file**. It contains sensitive credentials.
 
-## 🛠️ How to Run
+##  How to Run
 
 1. Install dependencies:
 
