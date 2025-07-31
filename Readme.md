@@ -33,11 +33,11 @@ python app.py
 ```
 
 <h2 align="center"> Notes </h2>
-```
+
 - Change GraphQL API endpoint
 - Change email credentials
 - Change email send condition value 
-```
+
 
 ### Cloudflaire Api Resource
 https://developers.cloudflare.com/api/resources/workers/subresources/scripts/methods/delete/
