@@ -1,8 +1,8 @@
-# 🔧 Cloudflare Worker Analytics Automation
+<h2 align="center"> Cloudflare Worker Analytics Automation </h2>
 
-This project is a **Cloudflare automation script** built with Python and Flask.  
+<p align="center"> This project is a **Cloudflare automation script** built with Python and Flask.  
 It fetches analytics for **all Cloudflare Workers** over the past 24 hours using the Cloudflare GraphQL API.
-
+</p>
 ## Features
 
 - Automatically fetches analytics data such as:
