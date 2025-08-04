@@ -1,7 +1,6 @@
 from flask_mail import Mail,Message
 from flask import Flask, json, render_template, jsonify
 import requests
-from app.controllers.email_controller import send_email
 from app.controllers.workers_controller import get_worker_analytics 
   
 
