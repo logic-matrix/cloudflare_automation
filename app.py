@@ -17,12 +17,7 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 
-# Example usage of send_email function
-
-to_email = "recipient@example.com";
-subject = "Cloudflare Worker Analytics Report"
-body = "Please find the attached Cloudflare Worker Analytics report."
-
+ 
 @app.route('/')
 def worker_table():
     with open('workers_data.json') as f:
@@ -40,11 +35,11 @@ def worker_analytics_route():
 @app.route('/email', methods=['get'])
 def index():
    msg = Message(
-                'Hello',
+                'Cloudflare Worker Analytics Report',
                 sender ='tarikulabir69@gmail.com',
                 recipients = ['tarikulabir931@gmail.com']
                )
-   msg.body = 'Hello Flask message sent from Flask-Mail'
+   msg.body = 'Hello World Workers are getting more than 1000 requests per day'
    mail.send(msg)
    return 'Sent'
      
