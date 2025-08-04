@@ -1,11 +1,27 @@
+from flask_mail import Mail,Message
 from flask import Flask, json, render_template, jsonify
 import requests
-
 from app.controllers.email_controller import send_email
 from app.controllers.workers_controller import get_worker_analytics 
   
 
 app = Flask(__name__)
+mail = Mail(app)
+
+# configuration of mail
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'tarikulabir69@gmail.com'
+app.config['MAIL_PASSWORD'] = 'nytxrkgtiekibmej'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
+
+# Example usage of send_email function
+
+to_email = "recipient@example.com";
+subject = "Cloudflare Worker Analytics Report"
+body = "Please find the attached Cloudflare Worker Analytics report."
 
 @app.route('/')
 def worker_table():
@@ -22,14 +38,16 @@ def worker_analytics_route():
     return get_worker_analytics()
 
 @app.route('/email', methods=['get'])
-def email_route():
-    #result = send_email()
-    if requests.status_code == 200:
-        send_email()
-        return jsonify({"message": "Email sent successfully"}), 200
-    else: 
-        return jsonify({"message":"Failed to send email"}), 500
-
-
+def index():
+   msg = Message(
+                'Hello',
+                sender ='tarikulabir69@gmail.com',
+                recipients = ['tarikulabir931@gmail.com']
+               )
+   msg.body = 'Hello Flask message sent from Flask-Mail'
+   mail.send(msg)
+   return 'Sent'
+     
+     
 if __name__ == '__main__':
     app.run(debug=True)
