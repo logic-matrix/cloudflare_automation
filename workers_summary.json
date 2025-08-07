@@ -1,0 +1,25 @@
+{
+  "total_summary": {
+    "cpuTimeP50_avg": 243.29,
+    "cpuTimeP99_avg": 249.62,
+    "total_errors": 0,
+    "total_requests": 16,
+    "total_subrequests": 0
+  },
+  "workers_summary": {
+    "gentle-glade-6848": {
+      "cpuTimeP50_avg": 288.78,
+      "cpuTimeP99_avg": 301.44,
+      "total_errors": 0,
+      "total_requests": 11,
+      "total_subrequests": 0
+    },
+    "hello-world-worker": {
+      "cpuTimeP50_avg": 197.8,
+      "cpuTimeP99_avg": 197.8,
+      "total_errors": 0,
+      "total_requests": 5,
+      "total_subrequests": 0
+    }
+  }
+}

@@ -6,61 +6,13 @@
           "workersInvocationsAdaptive": [
             {
               "dimensions": {
-                "datetime": "2025-07-31T14:48:03Z",
+                "datetime": "2025-07-24T07:54:34Z",
                 "scriptName": "gentle-glade-6848",
                 "status": "success"
               },
               "quantiles": {
-                "cpuTimeP50": 330,
-                "cpuTimeP99": 330
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 3,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:47:38Z",
-                "scriptName": "gentle-glade-6848",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 278,
-                "cpuTimeP99": 278
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 2,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:47:32Z",
-                "scriptName": "gentle-glade-6848",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 190,
-                "cpuTimeP99": 314
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 6,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:47:20Z",
-                "scriptName": "hello-world-worker",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 152,
-                "cpuTimeP99": 152
+                "cpuTimeP50": 631,
+                "cpuTimeP99": 631
               },
               "sum": {
                 "errors": 0,
@@ -70,61 +22,13 @@
             },
             {
               "dimensions": {
-                "datetime": "2025-07-31T14:47:41Z",
-                "scriptName": "hello-world-worker",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 294,
-                "cpuTimeP99": 360
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 4,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:48:06Z",
+                "datetime": "2025-07-24T07:54:33Z",
                 "scriptName": "gentle-glade-6848",
                 "status": "success"
               },
               "quantiles": {
-                "cpuTimeP50": 289,
-                "cpuTimeP99": 289
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 2,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:48:12Z",
-                "scriptName": "hello-world-worker",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 268,
-                "cpuTimeP99": 268
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 2,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:47:21Z",
-                "scriptName": "hello-world-worker",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 322,
-                "cpuTimeP99": 322
+                "cpuTimeP50": 281,
+                "cpuTimeP99": 281
               },
               "sum": {
                 "errors": 0,
@@ -134,61 +38,13 @@
             },
             {
               "dimensions": {
-                "datetime": "2025-07-31T14:46:53Z",
-                "scriptName": "hello-world-worker",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 207,
-                "cpuTimeP99": 207
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 1,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:48:09Z",
-                "scriptName": "hello-world-worker",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 265,
-                "cpuTimeP99": 265
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 2,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:48:10Z",
-                "scriptName": "hello-world-worker",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 255,
-                "cpuTimeP99": 255
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 2,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:47:36Z",
+                "datetime": "2025-07-24T07:55:34Z",
                 "scriptName": "gentle-glade-6848",
                 "status": "success"
               },
               "quantiles": {
-                "cpuTimeP50": 332,
-                "cpuTimeP99": 332
+                "cpuTimeP50": 420,
+                "cpuTimeP99": 420
               },
               "sum": {
                 "errors": 0,
@@ -198,29 +54,45 @@
             },
             {
               "dimensions": {
-                "datetime": "2025-07-31T14:48:04Z",
+                "datetime": "2025-07-24T08:02:25Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 308,
+                "cpuTimeP99": 308
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-24T09:07:24Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 134,
+                "cpuTimeP99": 134
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-24T07:54:38Z",
                 "scriptName": "gentle-glade-6848",
                 "status": "success"
               },
               "quantiles": {
-                "cpuTimeP50": 380,
-                "cpuTimeP99": 380
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 4,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:46:52Z",
-                "scriptName": "hello-world-worker",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 267,
-                "cpuTimeP99": 267
+                "cpuTimeP50": 343,
+                "cpuTimeP99": 343
               },
               "sum": {
                 "errors": 0,
@@ -230,8 +102,72 @@
             },
             {
               "dimensions": {
-                "datetime": "2025-07-31T14:46:55Z",
+                "datetime": "2025-07-24T09:07:23Z",
                 "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 201,
+                "cpuTimeP99": 201
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-24T07:55:35Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 206,
+                "cpuTimeP99": 206
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-24T08:55:04Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 182,
+                "cpuTimeP99": 182
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-24T08:02:22Z",
+                "scriptName": "hello-world-worker",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 173,
+                "cpuTimeP99": 173
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 1,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-24T08:55:05Z",
+                "scriptName": "gentle-glade-6848",
                 "status": "success"
               },
               "quantiles": {
@@ -246,13 +182,13 @@
             },
             {
               "dimensions": {
-                "datetime": "2025-07-31T14:47:40Z",
-                "scriptName": "hello-world-worker",
+                "datetime": "2025-07-24T08:55:07Z",
+                "scriptName": "gentle-glade-6848",
                 "status": "success"
               },
               "quantiles": {
-                "cpuTimeP50": 237,
-                "cpuTimeP99": 237
+                "cpuTimeP50": 158,
+                "cpuTimeP99": 165
               },
               "sum": {
                 "errors": 0,
@@ -262,49 +198,33 @@
             },
             {
               "dimensions": {
-                "datetime": "2025-07-31T14:46:54Z",
+                "datetime": "2025-07-24T07:54:37Z",
+                "scriptName": "gentle-glade-6848",
+                "status": "success"
+              },
+              "quantiles": {
+                "cpuTimeP50": 217,
+                "cpuTimeP99": 324
+              },
+              "sum": {
+                "errors": 0,
+                "requests": 2,
+                "subrequests": 0
+              }
+            },
+            {
+              "dimensions": {
+                "datetime": "2025-07-24T08:02:21Z",
                 "scriptName": "hello-world-worker",
                 "status": "success"
               },
               "quantiles": {
-                "cpuTimeP50": 255,
-                "cpuTimeP99": 255
+                "cpuTimeP50": 173,
+                "cpuTimeP99": 173
               },
               "sum": {
                 "errors": 0,
                 "requests": 1,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:47:35Z",
-                "scriptName": "gentle-glade-6848",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 362,
-                "cpuTimeP99": 362
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 3,
-                "subrequests": 0
-              }
-            },
-            {
-              "dimensions": {
-                "datetime": "2025-07-31T14:47:37Z",
-                "scriptName": "gentle-glade-6848",
-                "status": "success"
-              },
-              "quantiles": {
-                "cpuTimeP50": 306,
-                "cpuTimeP99": 306
-              },
-              "sum": {
-                "errors": 0,
-                "requests": 2,
                 "subrequests": 0
               }
             }

@@ -1,7 +1,7 @@
 from flask_mail import Mail,Message
 from flask import Flask, json, render_template, jsonify
 import requests
-from app.controllers.workers_controller import get_worker_analytics 
+from app.controllers.workers_controller import get_worker_analytics, summarize_workers 
   
 
 app = Flask(__name__)
@@ -27,9 +27,10 @@ def worker_table():
 
 
 
-@app.route('/cloudflare/worker-analytics', methods=['GET'])
+@app.route('/worker-analytics', methods=['GET'])
 def worker_analytics_route():
-    return get_worker_analytics()
+    get_worker_analytics()
+    return  summarize_workers()
 
 @app.route('/email', methods=['get'])
 def index():
