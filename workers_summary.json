@@ -11,7 +11,7 @@
       "cpuTimeP50_avg": 288.78,
       "cpuTimeP99_avg": 301.44,
       "total_errors": 0,
-      "total_requests": 1100,
+      "total_requests": 110,
       "total_subrequests": 0
     },
     "hello-world-worker": {
