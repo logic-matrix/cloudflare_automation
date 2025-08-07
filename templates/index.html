@@ -1,102 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cloudflare Worker Analytics</title>
+    <title>Worker Summary Dashboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef2f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+
+        .summary-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             padding: 20px;
-            background: #f9f9f9;
-        }
-    
-        h1 {
+            width: 200px;
             text-align: center;
-            margin-bottom: 20px;
+            transition: transform 0.2s;
         }
-    
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #34495e;
+        }
+
+        .card p {
+            font-size: 22px;
+            font-weight: bold;
+            color: #16a085;
+        }
+
         table {
-            width: 100%;
+            width: 90%;
             border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto 40px auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
         }
-    
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-    
+
         th {
-            background-color: #4CAF50;
+            background-color: #16a085;
             color: white;
+            padding: 14px;
         }
-    
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+            color: #2c3e50;
         }
-    
-        .status-success {
-            color: green;
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .high-request {
+            background-color: #ffebee !important;
+            color: #ff1900;
             font-weight: bold;
         }
-    
-        .status-error {
-            color: red;
-            font-weight: bold;
+
+        @media (max-width: 600px) {
+            .summary-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+            }
+
+            table {
+                width: 100%;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>Cloudflare Worker Analytics</h1>
     <center>
-    <h3>Last 24 hours Analytics</h3>
+        <h1>Cloudflaire Workers Analatics </h1>
     </center>
- 
+    
+    <h2>Total Summary</h2>
+    <div class="summary-cards">
+        <div class="card">
+    
+            <h3>Total Requests</h3>
+            <p>{{ total.total_requests }}</p>
+        </div>
+        <div class="card">
+            <h3>Total Subrequests</h3>
+            <p>{{ total.total_subrequests }}</p>
+        </div>
+        <div class="card">
+            <h3>Total Errors</h3>
+            <p>{{ total.total_errors }}</p>
+        </div>
+        <div class="card">
+            <h3>CPU Time P50</h3>
+            <p>{{ total.cpuTimeP50_avg }}</p>
+        </div>
+        <div class="card">
+            <h3>CPU Time P99</h3>
+            <p>{{ total.cpuTimeP99_avg }}</p>
+        </div>
+    </div>
+        <h2>Per Worker Summary</h2>
     <table>
-        <thead>
-            <tr>
-                <th>Date Time</th>
-                <th>Script Name</th>
-                <th>Status</th>
-                <th>Requests</th>
-                <th>Errors</th>
-                <th>Subrequests</th>
-                <th>CPU Time P50</th>
-                <th>CPU Time P99</th>
-            <th>Status</th>
+        <tr>
+            <th>Worker Name</th>
+            <th>Total Requests</th>
+            <th>Total Subrequests</th>
+            <th>Total Errors</th>
+            <th>Avg CPU Time P50</th>
+            <th>Avg CPU Time P99</th>
             </tr>
-        </thead>
-        <tbody>
-            {% for row in rows %}
-            <tr>
-                <td>{{ row.dimensions.datetime }}</td>
-                <td>{{ row.dimensions.scriptName }}</td>
-                <td class="status-{{ row.dimensions.status }}">{{ row.dimensions.status }}</td>
-                <td>{{ row.sum.requests }}</td>
-                <td>{{ row.sum.errors }}</td>
-                <td>{{ row.sum.subrequests }}</td>
-                <td>{{ row.quantiles.cpuTimeP50 }}</td>
-                <td>{{ row.quantiles.cpuTimeP99 }}</td>
-                <td style="color: {% if row.sum.requests > 1 %}red{% else %}green{% endif %}; font-weight: bold;">
-                    {% if row.sum.requests > 1 %}
-                    Warning
-                    {% else %}
-                    Good
-                    {% endif %}
-                </td>
-
-
-            </tr>
-            {% endfor %}
-        </tbody>
-
+        {% for name, stats in workers.items() %}
+        <tr class="{{ 'high-request' if stats.total_requests > 100 else '' }}">
+            <td>{{ name }}</td>
+            <td>{{ stats.total_requests }}</td>
+            <td>{{ stats.total_subrequests }}</td>
+            <td>{{ stats.total_errors }}</td>
+            <td>{{ stats.cpuTimeP50_avg }}</td>
+            <td>{{ stats.cpuTimeP99_avg }}</td>
+        </tr>
+        {% endfor %}
     </table>
+
 </body>
 
 </html>

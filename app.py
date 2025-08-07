@@ -19,11 +19,13 @@ mail = Mail(app)
  
 @app.route('/')
 def worker_table():
-    with open('workers_data.json') as f:
+    with open('workers_summary.json') as f:
         data = json.load(f)
 
-    rows = data["data"]["viewer"]["accounts"][0]["workersInvocationsAdaptive"]
-    return render_template('index.html', rows=rows)
+    workers_summary = data["workers_summary"]
+    total_summary = data["total_summary"]
+
+    return render_template('index.html', workers=workers_summary, total=total_summary)
 
 
 
